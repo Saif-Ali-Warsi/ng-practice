@@ -1,0 +1,7 @@
+<button (click)="togglePost()">
+  {{ showPost ? "Hide Posts" : "Show Posts" }}
+</button>
+
+<ng-container *ngIf="showPost">
+  <p *ngFor="let post of posts">{{ post.title }}</p>
+</ng-container>

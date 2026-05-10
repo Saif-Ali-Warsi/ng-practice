@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BaseButtonComponent } from '../base-button/base-button.component';
 
 @Component({
   selector: 'app-user-details',

@@ -1,1 +1,14 @@
-<p *ngFor="let user of users">{{ user.name }}</p>
+<button
+  (click)="toggleUsers()"
+  [ngClass]="showUsers ? 'active-color' : 'remove-active-color'"
+>
+  {{ showUsers ? "Hide Users" : "Show Users" }}
+</button>
+<ng-container *ngIf="showUsers">
+  <p *ngFor="let user of users">{{ user.name }}</p>
+</ng-container>
+
+<app-base-button
+  [label]="'Save Settings'"
+  (buttonClick)="saveSetting()"
+></app-base-button>
