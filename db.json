@@ -1,0 +1,21 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Angular RxJS Guide"
+    },
+    {
+      "id": "2",
+      "title": "Understanding Signals"
+    },
+    {
+      "id": "3",
+      "title": "NgRx State Management"
+    },
+    {
+      "title": "Search using RxJS stream properly",
+      "id": "HYAAlDKuPZ4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

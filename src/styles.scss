@@ -11,6 +11,7 @@ input {
   font-size: 14px;
   color: #00ffff;
   padding: 8px 10px;
+  height: 28px;
   width: calc(100% - 20px);
   background-color: unset;
   border: 1px solid #00ffff;
@@ -26,6 +27,7 @@ button {
   height: 45px;
   min-width: 100px;
   border: 1px solid #00ffff;
+  border-radius: 4px;
 }
 
 ul {

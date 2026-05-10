@@ -1,4 +1,10 @@
 <div class="wrapper">
+  <input type="text" placeholder="Enter post title" [(ngModel)]="postTitle" />
+
+  <button (click)="addPost()">Add Post</button>
+</div>
+
+<div class="wrapper">
   <!-- <button (click)="togglePost()">
     {{ showPost ? "Hide Posts" : "Show Posts" }}
   </button> -->

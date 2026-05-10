@@ -2,16 +2,18 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PostsService } from '../../services/posts.service';
 import { Subject, BehaviorSubject, debounceTime, distinctUntilChanged, takeUntil } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-posts',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './posts.component.html',
   styleUrl: './posts.component.scss'
 })
 export class PostsComponent implements OnInit, OnDestroy {
 
+  postTitle = '';
 
   posts: any[] = [];
 
@@ -60,6 +62,27 @@ export class PostsComponent implements OnInit, OnDestroy {
         this.posts = post;
         this.filteredPosts = post;
       })
+
+  }
+
+  addPost() {
+
+    if (!this.postTitle.trim()) return;
+
+    const newPost = {
+      title: this.postTitle
+    };
+
+    this.postsService.addPost(newPost).pipe(takeUntil(this.destroy$))
+      .subscribe((response: any) => {
+
+        this.posts.unshift(response);
+
+        this.filteredPosts.unshift(response);
+
+        this.postTitle = '';
+      })
+
 
   }
 
