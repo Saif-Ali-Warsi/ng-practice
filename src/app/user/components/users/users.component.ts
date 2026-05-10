@@ -12,7 +12,9 @@ import { BaseButtonComponent } from '../base-button/base-button.component';
 })
 export class UsersComponent implements OnInit {
 
-  users: any = [];
+  users: any[] = [];
+
+  filteredUsers: any[] = [];
 
   showUsers = false;
 
@@ -26,10 +28,22 @@ export class UsersComponent implements OnInit {
     this.showUsers = !this.showUsers;
   }
 
+
+  onSearch(event: any) {
+    const value = event.target.value.toLowerCase();
+
+    this.filteredUsers = this.users.filter(user => user.name.toLowerCase().includes(value));
+  }
+
+
   loadUsers() {
-    this.userService.getUsers().subscribe((user) => {
+    this.userService.getUsers().subscribe((user: any) => {
       this.users = user;
+
+      this.filteredUsers = user;
     })
+
+
   }
 
   saveSetting() {

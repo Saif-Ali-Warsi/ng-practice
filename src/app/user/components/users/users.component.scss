@@ -1,7 +1,13 @@
 .active-color {
-  background-color: aqua;
+  background-color: rgb(255, 72, 0);
 }
 
 .remove-active-color {
-  background-color: gray;
+  background-color: unset;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }

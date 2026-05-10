@@ -1,7 +1,10 @@
-<button (click)="togglePost()">
-  {{ showPost ? "Hide Posts" : "Show Posts" }}
-</button>
+<div class="wrapper">
+  <!-- <button (click)="togglePost()">
+    {{ showPost ? "Hide Posts" : "Show Posts" }}
+  </button> -->
 
+  <input type="text" (input)="onSearch($event)" placeholder="Search posts" />
+</div>
 <ng-container *ngIf="showPost">
-  <p *ngFor="let post of posts">{{ post.title }}</p>
+  <p *ngFor="let post of filteredPosts">{{ post.title }}</p>
 </ng-container>

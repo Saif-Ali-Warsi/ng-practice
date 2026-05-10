@@ -1,14 +1,25 @@
-<button
-  (click)="toggleUsers()"
-  [ngClass]="showUsers ? 'active-color' : 'remove-active-color'"
->
-  {{ showUsers ? "Hide Users" : "Show Users" }}
-</button>
+<div class="wrapper">
+  <div>
+    <button
+      (click)="toggleUsers()"
+      [ngClass]="showUsers ? 'active-color' : 'remove-active-color'"
+    >
+      {{ showUsers ? "Hide Users" : "Show Users" }}
+    </button>
+  </div>
+
+  <div>
+    <input type="text" (input)="onSearch($event)" placeholder="search user" />
+  </div>
+</div>
+
 <ng-container *ngIf="showUsers">
-  <p *ngFor="let user of users">{{ user.name }}</p>
+  <p *ngFor="let user of filteredUsers">{{ user.name }}</p>
 </ng-container>
 
-<app-base-button
-  [label]="'Save Settings'"
-  (buttonClick)="saveSetting()"
-></app-base-button>
+<div>
+  <app-base-button
+    [label]="'Save Settings'"
+    (buttonClick)="saveSetting()"
+  ></app-base-button>
+</div>
