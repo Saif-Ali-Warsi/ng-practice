@@ -1,7 +1,9 @@
 <div class="wrapper">
   <input type="text" placeholder="Enter post title" [(ngModel)]="postTitle" />
 
-  <button (click)="addPost()">Add Post</button>
+  <button (click)="addPost()">
+    {{ isEditingMode ? "Update" : "Add Post" }}
+  </button>
 </div>
 
 <div class="wrapper">
@@ -12,5 +14,11 @@
   <input type="text" (input)="onSearch($event)" placeholder="Search posts" />
 </div>
 <ng-container *ngIf="showPost">
-  <p *ngFor="let post of filteredPosts">{{ post.title }}</p>
+  <div class="card wrapper" *ngFor="let post of filteredPosts">
+    <p>{{ post.title }}</p>
+    <div class="btn-group">
+      <button (click)="editPost(post)">Edit</button>
+      <button (click)="deletePost(post.id)">Delete</button>
+    </div>
+  </div>
 </ng-container>

@@ -21,6 +21,10 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   filteredPosts: any[] = [];
 
+  editingPostId: number | null = null;
+
+  isEditingMode = false;
+
   private destroy$ = new Subject<void>();
 
   search$ = new BehaviorSubject<string>('');
@@ -82,7 +86,21 @@ export class PostsComponent implements OnInit, OnDestroy {
 
         this.postTitle = '';
       })
+  }
 
+  editPost(post: any) {
+    this.postTitle = post.title;
+    this.editingPostId = post.id;
+    this.isEditingMode = true;
+  }
+
+  deletePost(id: number) {
+    this.postsService.deletePost(id).pipe(
+      takeUntil(this.destroy$)).subscribe(() => {
+        this.posts = this.posts.filter(post => post.id !== id)
+
+        this.filteredPosts = this.filteredPosts.filter(post => post.id !== id)
+      })
 
   }
 

@@ -21,7 +21,7 @@ export class PostsService {
   }
 
   deletePost(id: number) {
-    return this.http.delete(`${this.baseUrl}/ ${id}`);
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
   updatePost(id: number, post: any) {

@@ -1,10 +1,6 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Angular RxJS Guide"
-    },
-    {
       "id": "2",
       "title": "Understanding Signals"
     },
@@ -15,6 +11,14 @@
     {
       "title": "Search using RxJS stream properly",
       "id": "HYAAlDKuPZ4"
+    },
+    {
+      "title": "Angular RxJS Guide",
+      "id": "SJLfR7jIHmE"
+    },
+    {
+      "title": "Search using RxJS stream properly",
+      "id": "C5Ca9ZtwqiY"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
